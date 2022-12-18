@@ -10,8 +10,20 @@ public class Car {
     int year;
     String country;
 
-    void print(){
+    public void print(){
         System.out.println(brand + " " + model + ", " + year + " года выпуска, сборка: " + country + ", " + color + " цвет кузова, объем двигателя — " + engineVolume);
+    }
+    public Car(String brand, String model){
+        this(brand, model, 2016);
+    }
+
+    public Car(String brand, String model, int year){
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        engineVolume = 0.7;
+        color = "черный";
+        country = "Южная Корея";
     }
 
     @Override
