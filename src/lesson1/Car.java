@@ -76,7 +76,7 @@ public class Car {
             this.year = 2000;
         }
 
-        if ( color == null  || color.length() == 0) {
+        if ( color == null  || color.isEmpty()) {
             this.color = "белый";
         } else {
             this.color = color;
