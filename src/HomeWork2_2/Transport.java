@@ -5,12 +5,12 @@ import java.time.LocalDate;
 
 public class Transport {
 
-        final String brand;
-        private String model;
-        private final float engineVolume;
+        private final String brand;
+        private final String model;
+        private float engineVolume;
         String color;
         private final int year;
-        private String country;
+        private final String country;
         String transmission;
         private final String bodyType;
         String registrationNumber;
@@ -32,58 +32,9 @@ public class Transport {
         }
 
         public Transport(String brand, String model, String country, float engineVolume, int year, String color, String transmission, String bodyType, String registrationNumber, int numberOfSeats, boolean summerOrWinterTires) {
-            switch (brand) {
-                case "Lada":
-                    this.brand = "Lada";
-                    break;
-                case "Audi":
-                    this.brand = "Audi";
-                    break;
-                case "BMW":
-                    this.brand = "BMW";
-                    break;
-                case "Kia":
-                    this.brand = "Kia";
-                    break;
-                case "Hyundai":
-                    this.brand = "Hyundai";
-                    break;
-                default:
-                    System.out.println("Неизвестный бренд: " + brand);
-            }
-            switch (model) {
-                case "Granta":
-                    this.model = model;
-                    break;
-                case "A8 50 L TDI quattro":
-                    this.model = model;
-                    break;
-                case "Z8":
-                    this.model = model;
-                    break;
-                case "Sportage 4-го поколения":
-                    this.model = model;
-                    break;
-                case "Avante":
-                    this.model = model;
-                    break;
-                default:
-                    System.out.println("Неизвестная модель: " + model);
-            }
-
-            switch (country) {
-                case "Россия":
-                    this.country = country;
-                    break;
-                case "Германия":
-                    this.country = country;
-                    break;
-                case "Южная Корея":
-                    this.country = country;
-                    break;
-                default:
-                    System.out.println("Неизвестная страна: " + country);
-            }
+            this.brand = isCorrectStringType(brand);
+            this.model = isCorrectStringType(model);
+            this.country = isCorrectStringType(country);
 
             if (year >= 0) {
                 this.year = year;
@@ -102,9 +53,9 @@ public class Transport {
             } else {
                 this.engineVolume = 1.5F;
             }
-            this.transmission = transmission;
-            this.bodyType = bodyType;
-            this.registrationNumber = registrationNumber;
+            this.transmission = isCorrectStringType(transmission);
+            this.bodyType = isCorrectStringType(bodyType);
+            this.registrationNumber = isCorrectStringType(registrationNumber);
             this.numberOfSeats = numberOfSeats;
             this.summerOrWinterTires = summerOrWinterTires;
         }
@@ -169,35 +120,19 @@ public class Transport {
             this.summerOrWinterTires = summerOrWinterTires;
         }
 
-        private boolean isCorrectStringType(String object) {
-            if (object.equals("") && object != null) {
-                return true;
+        private String isCorrectStringType(String object) {
+            if (!object.equals("")) {
+                if (!object.isBlank()) {
+                    return object;
+                }
             }
-            return false;
+            return "default ";
         }
 
-/*    public static void changeTiresToSeason() {
+    public void changeTiresToSeason() {
         int month = LocalDate.now().getMonthValue();
-        switch (month){
-            case 1:
-            case 2:
-            case 3:
-            case 10:
-            case 11:
-            case 12:
-                this.summerOrWinterTires = false;
-                break;
-            case 4:
-            case 5:
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-                this.summerOrWinterTires = true;
-                break;
-        }
-
-    }*/
+        this.summerOrWinterTires = (month >= 4) && (month <= 9);
+    }
 
         @Override
         public String toString() {
@@ -208,9 +143,10 @@ public class Transport {
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            lesson1.Transport transport = (lesson1.Transport) o;
+            HomeWork2_2.Transport transport = (HomeWork2_2.Transport) o;
             return Float.compare(transport.engineVolume, engineVolume) == 0 && year == transport.year && numberOfSeats == transport.numberOfSeats && summerOrWinterTires == transport.summerOrWinterTires && brand.equals(transport.brand) && model.equals(transport.model) && color.equals(transport.color) && country.equals(transport.country) && transmission.equals(transport.transmission) && bodyType.equals(transport.bodyType) && registrationNumber.equals(transport.registrationNumber);
         }
+
 
         @Override
         public int hashCode() {

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Transport {
-    final String brand;
+    String brand;
     private String model;
     private final float engineVolume;
     String color;
