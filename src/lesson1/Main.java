@@ -1,8 +1,10 @@
 package lesson1;
 
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
-        Car ladaGranta = new Car("Lada","Granta", "Россия", 1.7F, 2015);
+        Car ladaGranta = new Car("Lada", "Granta", "Россия", 1.7F, 2015);
         ladaGranta.color = "жёлтый";
         ladaGranta.print();
 

@@ -1,28 +1,35 @@
 package lesson1;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Transport {
     final String brand;
-    String model;
-    float engineVolume;
+    private String model;
+    private final float engineVolume;
     String color;
-    int year;
-    String country;
+    private final int year ;
+    private String country;
     String transmission;
-    String bodyType;
+    private final String bodyType;
     String registrationNumber;
-    int numberOfSeats;
+    private final int numberOfSeats;
     boolean summerOrWinterTires;
 
     public void print(){
-        System.out.println(brand + " " + model + ", " + year + " года выпуска, сборка: " + country + ", " + color + " цвет кузова, объем двигателя — " + engineVolume);
+        String rezina;
+        if (summerOrWinterTires){
+            rezina = "летняя";
+        } else {
+            rezina = "зимняя";
+        }
+        System.out.println(brand + " " + model + ", " + year + " года выпуска, сборка: " + country + ", " + color + " цвет кузова, объем двигателя — " + engineVolume + ", " + transmission + ", " + bodyType + ", рег.№ " + registrationNumber + ", количество мест: " + numberOfSeats + ", резина " + rezina + ";");
     }
     public Transport(String brand, String model, String country, float engineVolume, String transmission, String bodyType, String registrationNumber, int numberOfSeats, boolean summerOrWinterTires){
-        this(brand, model, country, engineVolume, 2000, transmission, bodyType, registrationNumber, numberOfSeats, summerOrWinterTires);
+        this(brand, model, country, engineVolume, 2000, "белый", transmission, bodyType, registrationNumber, numberOfSeats, summerOrWinterTires);
     }
 
-    public Transport(String brand, String model, String country, float engineVolume, int year, String transmission, String bodyType, String registrationNumber, int numberOfSeats, boolean summerOrWinterTires){
+    public Transport(String brand, String model, String country, float engineVolume, int year, String color, String transmission, String bodyType, String registrationNumber, int numberOfSeats, boolean summerOrWinterTires){
         switch (brand) {
             case "Lada":
                 this.brand = "Lada";
@@ -99,6 +106,75 @@ public class Transport {
         this.numberOfSeats = numberOfSeats;
         this.summerOrWinterTires = summerOrWinterTires;
     }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public float getEngineVolume() {
+        return engineVolume;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getTransmission() {
+        return transmission;
+    }
+
+    public String getBodyType() {
+        return bodyType;
+    }
+
+    public String getRegistrationNumber() {
+        return registrationNumber;
+    }
+
+    public int getNumberOfSeats() {
+        return numberOfSeats;
+    }
+
+    public boolean isSummerOrWinterTires() {
+        return summerOrWinterTires;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setTransmission(String transmission) {
+        this.transmission = transmission;
+    }
+
+    public void setRegistrationNumber(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
+    }
+
+    public void setSummerOrWinterTires(boolean summerOrWinterTires) {
+        this.summerOrWinterTires = summerOrWinterTires;
+    }
+
+    private boolean isCorrectStringType (String object){
+        if (object.equals("") && object != null){
+            return true;
+        }
+        return false;
+    }
+
+
 
     @Override
     public String toString() {
