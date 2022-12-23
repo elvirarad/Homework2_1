@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.time.LocalDate;
 
 public class Transport {
-
+Transport[] transports = new Transport[5];
         private final String brand;
         private final String model;
         private float engineVolume;
@@ -17,14 +17,14 @@ public class Transport {
         private final int numberOfSeats;
         boolean summerOrWinterTires;
 
-        public void print() {
-            String rezina;
+        public String determinationOfTheTypeOfTires(boolean summerOrWinterTires) {
+            String tires;
             if (summerOrWinterTires) {
-                rezina = "летняя";
+                tires = "летняя";
             } else {
-                rezina = "зимняя";
+                tires = "зимняя";
             }
-            System.out.println(brand + " " + model + ", " + year + " года выпуска, сборка: " + country + ", " + color + " цвет кузова, объем двигателя — " + engineVolume + ", " + transmission + ", " + bodyType + ", рег.№ " + registrationNumber + ", количество мест: " + numberOfSeats + ", резина " + rezina + ";");
+            return tires;
         }
 
         public Transport(String brand, String model, String country, float engineVolume, String transmission, String bodyType, String registrationNumber, int numberOfSeats, boolean summerOrWinterTires) {
@@ -129,14 +129,9 @@ public class Transport {
             return "default ";
         }
 
-    public void changeTiresToSeason() {
-        int month = LocalDate.now().getMonthValue();
-        this.summerOrWinterTires = (month >= 4) && (month <= 9);
-    }
-
         @Override
         public String toString() {
-            return brand + model + year + country + color + engineVolume + transmission + bodyType + registrationNumber + numberOfSeats + summerOrWinterTires;
+            return "Марка " + brand + ", модель " + model + " " + year + "г.выпуска, сборка " + country + ", цвет кузова: " + color + ", объём двигателя - " + engineVolume + ", коробка передач " + transmission + ", тип кузова - " + bodyType + ", рег.№ " + registrationNumber + ", количество мест - " + numberOfSeats + ", резина - " + determinationOfTheTypeOfTires(summerOrWinterTires) + ";";
         }
 
         @Override
