@@ -44,4 +44,7 @@ public class TransportService {
     } else object = "default ";
         return object;
     }
+
+//    public static boolean isCorrectBooleanType(int object) {
+//    }
 }
