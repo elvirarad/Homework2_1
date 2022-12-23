@@ -32,9 +32,9 @@ Transport[] transports = new Transport[5];
         }
 
         public Transport(String brand, String model, String country, float engineVolume, int year, String color, String transmission, String bodyType, String registrationNumber, int numberOfSeats, boolean summerOrWinterTires) {
-            this.brand = isCorrectStringType(brand);
-            this.model = isCorrectStringType(model);
-            this.country = isCorrectStringType(country);
+            this.brand = TransportService.isCorrectStringType(brand);
+            this.model = TransportService.isCorrectStringType(model);
+            this.country = TransportService.isCorrectStringType(country);
 
             if (year >= 0) {
                 this.year = year;
@@ -53,10 +53,10 @@ Transport[] transports = new Transport[5];
             } else {
                 this.engineVolume = 1.5F;
             }
-            this.transmission = isCorrectStringType(transmission);
-            this.bodyType = isCorrectStringType(bodyType);
-            this.registrationNumber = isCorrectStringType(registrationNumber);
-            this.numberOfSeats = numberOfSeats;
+            this.transmission = TransportService.isCorrectStringType(transmission);
+            this.bodyType = TransportService.isCorrectStringType(bodyType);
+            this.registrationNumber = TransportService.isCorrectRegistrationNumber(registrationNumber);
+            this.numberOfSeats = TransportService.isCorrectIntType(numberOfSeats);
             this.summerOrWinterTires = summerOrWinterTires;
         }
 
@@ -120,14 +120,14 @@ Transport[] transports = new Transport[5];
             this.summerOrWinterTires = summerOrWinterTires;
         }
 
-        private String isCorrectStringType(String object) {
+        /*private String isCorrectStringType(String object) {
             if (!object.equals("")) {
                 if (!object.isBlank()) {
                     return object;
                 }
             }
             return "default ";
-        }
+        }*/
 
         @Override
         public String toString() {
