@@ -120,15 +120,6 @@ Transport[] transports = new Transport[5];
             this.summerOrWinterTires = summerOrWinterTires;
         }
 
-        /*private String isCorrectStringType(String object) {
-            if (!object.equals("")) {
-                if (!object.isBlank()) {
-                    return object;
-                }
-            }
-            return "default ";
-        }*/
-
         @Override
         public String toString() {
             return "Марка " + brand + ", модель " + model + " " + year + "г.выпуска, сборка " + country + ", цвет кузова: " + color + ", объём двигателя - " + engineVolume + ", коробка передач " + transmission + ", тип кузова - " + bodyType + ", рег.№ " + registrationNumber + ", количество мест - " + numberOfSeats + ", резина - " + determinationOfTheTypeOfTires(summerOrWinterTires) + ";";

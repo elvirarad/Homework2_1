@@ -34,8 +34,10 @@ public class TransportService {
         String object2 = object.trim();
         if (object.length() == 9){
             Pattern pattern = Pattern.compile("\\w{1}\\d{3}\\w{2}\\d{3}");
+            Pattern pattern2 = Pattern.compile("\\D{1}\\d{3}\\D{2}\\d{3}");
             Matcher matches = pattern.matcher(object);
-            boolean result = matches.matches();
+            Matcher matches2 = pattern2.matcher(object);
+            boolean result = matches.matches() && matches2.matches();
             if (!result) {
                 object = "default ";
             }
