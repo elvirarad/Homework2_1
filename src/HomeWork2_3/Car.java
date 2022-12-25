@@ -2,13 +2,9 @@ package HomeWork2_3;
 
 import java.util.Objects;
 
-public class Car {
-    String brand;
-    String model;
+public class Car extends Transport {
+
     float engineVolume;
-    String color;
-    int year;
-    String country;
 
     public static class Key{
         private final boolean remoteEngineStart;
@@ -30,51 +26,41 @@ public class Car {
         }
     }
 
-    public void print(){
-        System.out.println(brand + " " + model + ", " + year + " года выпуска, сборка: " + country + ", " + color + " цвет кузова, объем двигателя — " + engineVolume);
-    }
-    public Car(String brand, String model, String country, float engineVolume){
-        this(brand, model, country, engineVolume, 2000);
-    }
-
-    public Car(String brand, String model, String country, float engineVolume, int year){
-        this.brand = TransportService.isCorrectStringType(brand);
-        this.model = TransportService.isCorrectStringType(model);
-        this.country = TransportService.isCorrectStringType(country);
-        if (year >= 0){
-            this.year = year;
-        } else {
-            this.year = 2000;
-        }
-
-        if ( color == null  || color.isEmpty()) {
-            this.color = "белый";
-        } else {
-            this.color = color;
-        }
+    public Car (String brend, String model, int year, String country, String color, int maxSpeed) {
+        super(brend, model, year, country, color, maxSpeed);
 
         if (engineVolume > 0F){
             this.engineVolume = engineVolume;
         } else {
             this.engineVolume = 1.5F;
         }
+
+    }
+
+    public float getEngineVolume() {
+        return engineVolume;
+    }
+
+    public void setEngineVolume(float engineVolume) {
+        this.engineVolume = engineVolume;
     }
 
     @Override
     public String toString() {
-        return brand +  model + year  + country + color + engineVolume;
+        return "Car{" + " объем двигателя = " + engineVolume + "л." + '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Car car = (Car) o;
-        return Double.compare(car.engineVolume, engineVolume) == 0 && year == car.year && brand.equals(car.brand) && model.equals(car.model) && color.equals(car.color) && country.equals(car.country);
+        return Float.compare(car.engineVolume, engineVolume) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, model, engineVolume, color, year, country);
+        return Objects.hash(super.hashCode(), engineVolume);
     }
 }

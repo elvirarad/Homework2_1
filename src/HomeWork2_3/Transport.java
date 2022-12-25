@@ -1,39 +1,24 @@
 package HomeWork2_3;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Transport {
     Transport[] transports = new Transport[5];
-    private final String brand;
-    private final String model;
-    private float engineVolume;
-    String color;
+    private String brand;
+    private String model;
     private final int year;
     private final String country;
-    String transmission;
-    private final String bodyType;
-    String registrationNumber;
-    private final int numberOfSeats;
-    boolean summerOrWinterTires;
+    String color;
+    private int maxSpeed;
 
-    public String determinationOfTheTypeOfTires(boolean summerOrWinterTires) {
-        String tires;
-        if (summerOrWinterTires) {
-            tires = "летняя";
-        } else {
-            tires = "зимняя";
-        }
-        return tires;
+    public Transport(String brand, String model, String country, int maxSpeed) {
+        this(brand, model, 2000, country,  "белый", maxSpeed);
     }
 
-    public Transport(String brand, String model, String country, float engineVolume, String transmission, String bodyType, String registrationNumber, int numberOfSeats, boolean summerOrWinterTires) {
-        this(brand, model, country, engineVolume, 2000, "белый", transmission, bodyType, registrationNumber, numberOfSeats, summerOrWinterTires);
-    }
-
-    public Transport(String brand, String model, String country, float engineVolume, int year, String color, String transmission, String bodyType, String registrationNumber, int numberOfSeats, boolean summerOrWinterTires) {
+    public Transport(String brand, String model, int year, String country, String color, int maxSpeed) {
         this.brand = TransportService.isCorrectStringType(brand);
         this.model = TransportService.isCorrectStringType(model);
-        this.country = TransportService.isCorrectStringType(country);
 
         if (year >= 0) {
             this.year = year;
@@ -41,22 +26,15 @@ public class Transport {
             this.year = 2000;
         }
 
+        this.country = TransportService.isCorrectStringType(country);
+
         if (color == null || color.isEmpty()) {
             this.color = "белый";
         } else {
             this.color = color;
         }
 
-        if (engineVolume > 0F) {
-            this.engineVolume = engineVolume;
-        } else {
-            this.engineVolume = 1.5F;
-        }
-        this.transmission = TransportService.isCorrectStringType(transmission);
-        this.bodyType = TransportService.isCorrectStringType(bodyType);
-        this.registrationNumber = TransportService.isCorrectRegistrationNumber(registrationNumber);
-        this.numberOfSeats = TransportService.isCorrectIntType(numberOfSeats);
-        this.summerOrWinterTires = summerOrWinterTires;
+        this.maxSpeed = TransportService.isCorrectIntType(maxSpeed);
     }
 
     public String getBrand() {
@@ -66,62 +44,28 @@ public class Transport {
     public String getModel() {
         return model;
     }
-
-    public float getEngineVolume() {
-        return engineVolume;
+    public int getYear() {
+        return year;
     }
 
     public String getColor() {
         return color;
     }
 
-    public int getYear() {
-        return year;
-    }
-
     public String getCountry() {
         return country;
     }
 
-    public String getTransmission() {
-        return transmission;
-    }
-
-    public String getBodyType() {
-        return bodyType;
-    }
-
-    public String getRegistrationNumber() {
-        return registrationNumber;
-    }
-
-    public int getNumberOfSeats() {
-        return numberOfSeats;
-    }
-
-    public boolean isSummerOrWinterTires() {
-        return summerOrWinterTires;
-    }
+    public int getMaxSpeed() { return maxSpeed; }
 
     public void setColor(String color) {
         this.color = color;
     }
 
-    public void setTransmission(String transmission) {
-        this.transmission = transmission;
-    }
-
-    public void setRegistrationNumber(String registrationNumber) {
-        this.registrationNumber = registrationNumber;
-    }
-
-    public void setSummerOrWinterTires(boolean summerOrWinterTires) {
-        this.summerOrWinterTires = summerOrWinterTires;
-    }
 
     @Override
     public String toString() {
-        return "Марка " + brand + ", модель " + model + " " + year + "г.выпуска, сборка " + country + ", цвет кузова: " + color + ", объём двигателя - " + engineVolume + ", коробка передач " + transmission + ", тип кузова - " + bodyType + ", рег.№ " + registrationNumber + ", количество мест - " + numberOfSeats + ", резина - " + determinationOfTheTypeOfTires(summerOrWinterTires) + ";";
+        return "Марка " + brand + ", модель " + model + ", сборка " + country + ", " + year + "г.выпуска " + ", цвет кузова: " + color + ", максимальная скорость передвижения - "+ maxSpeed + " км/ч.;";
     }
 
     @Override
@@ -129,11 +73,13 @@ public class Transport {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Transport transport = (Transport) o;
-        return Float.compare(transport.engineVolume, engineVolume) == 0 && year == transport.year && numberOfSeats == transport.numberOfSeats && summerOrWinterTires == transport.summerOrWinterTires && brand.equals(transport.brand) && model.equals(transport.model) && color.equals(transport.color) && country.equals(transport.country) && transmission.equals(transport.transmission) && bodyType.equals(transport.bodyType) && registrationNumber.equals(transport.registrationNumber);
+        return year == transport.year && maxSpeed == transport.maxSpeed && Arrays.equals(transports, transport.transports) && brand.equals(transport.brand) && model.equals(transport.model) && country.equals(transport.country) && color.equals(transport.color);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, model, engineVolume, color, year, country, transmission, bodyType, registrationNumber, numberOfSeats, summerOrWinterTires);
+        int result = Objects.hash(brand, model, year, country, color, maxSpeed);
+        result = 31 * result + Arrays.hashCode(transports);
+        return result;
     }
 }
