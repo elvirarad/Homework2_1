@@ -1,8 +1,10 @@
-package HomeWork2_2;
+package HomeWork2_3;
+
+import java.time.LocalDate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.time.LocalDate;
-import java.util.Arrays;
+
+
 
 public class TransportService {
     Transport[] transports = new Transport[5];
@@ -25,8 +27,8 @@ public class TransportService {
 
     public static int isCorrectIntType(int object) {
         if (object < 1 || object > 100) {
-                return 1;
-            }
+            return 1;
+        }
         return object;
     }
 
@@ -41,7 +43,7 @@ public class TransportService {
             if (!result) {
                 object = "default ";
             }
-    } else object = "default ";
+        } else object = "default ";
         return object;
     }
 
