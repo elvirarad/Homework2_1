@@ -16,7 +16,12 @@ public class Transport {
         this(brand, model, 2000, country,  "белый", maxSpeed);
     }
 
-    public Transport(String brand, String model, int year, String country, String color, int maxSpeed) {
+    public Transport(String brand,
+                     String model,
+                     int year,
+                     String country,
+                     String color,
+                     int maxSpeed) {
         this.brand = TransportService.isCorrectStringType(brand);
         this.model = TransportService.isCorrectStringType(model);
 
@@ -65,7 +70,12 @@ public class Transport {
 
     @Override
     public String toString() {
-        return "Марка " + brand + ", модель " + model + ", сборка " + country + ", " + year + "г.выпуска " + ", цвет кузова: " + color + ", максимальная скорость передвижения - "+ maxSpeed + " км/ч.;";
+        return "Марка " + brand +
+                ", модель " + model +
+                ", сборка " + country + ", " +
+                year + "г.выпуска " +
+                ", цвет кузова: " + color +
+                ", максимальная скорость передвижения - "+ maxSpeed + " км/ч.;";
     }
 
     @Override

@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class Car extends Transport {
 
-    float engineVolume;
+    private float engineVolume;
 
-    public static class Key{
+    /*public static class Key{
         private final boolean remoteEngineStart;
         private final boolean keylessEntry;
 
@@ -15,18 +15,24 @@ public class Car extends Transport {
             this.keylessEntry = keylessEntry;
             // проверять данные не вижу смысла, т.к. в типе boolean возможны только 2 значения : true / false
             // в единственном конструкторе указаны оба поля и при введении значения отличный от true и false Java  будет выдавать ошибку
-        }
+        }*/
 
-        public boolean isRemoteEngineStart() {
+       /* public boolean isRemoteEngineStart() {
             return remoteEngineStart;
         }
 
         public boolean isKeylessEntry() {
             return keylessEntry;
         }
-    }
+    }*/
 
-    public Car (String brend, String model, int year, String country, String color, int maxSpeed) {
+    public Car (String brend,
+                String model,
+                int year,
+                String country,
+                String color,
+                int maxSpeed,
+                float engineVolume) {
         super(brend, model, year, country, color, maxSpeed);
 
         if (engineVolume > 0F){
@@ -47,7 +53,14 @@ public class Car extends Transport {
 
     @Override
     public String toString() {
-        return "Car{" + " объем двигателя = " + engineVolume + "л." + '}';
+        return "Марка " + getBrand() +
+                ", модель " + getModel() +
+                ", сборка " + getCountry() + ", " +
+                getYear() + "г.выпуска " +
+                ", цвет кузова: " + getColor() +
+                ", максимальная скорость передвижения - "+ getMaxSpeed() + " км/ч.;" +
+                " объем двигателя = " + engineVolume + "л.";
+        //"Car{" + " объем двигателя = " + engineVolume + "л." + '}';
     }
 
     @Override
