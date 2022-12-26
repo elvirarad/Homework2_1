@@ -13,7 +13,7 @@ public class TransportService {
     }
 
     public static int isCorrectIntType(int object) {
-        if (object < 1 || object > 300) {
+        if (object < 1 || object > 350) {
             return 1;
         }
         return object;

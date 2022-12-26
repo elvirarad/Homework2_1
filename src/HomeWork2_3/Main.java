@@ -1,83 +1,29 @@
 package HomeWork2_3;
 
 
+import HomeWork2_2.Transport;
+
 public class Main {
     public static void main(String[] args) {
 
-        Transport[] transport = new Transport[5];
-        transport[0] = new Transport("Lada",
-                "Granta",
-                2015,
-                "Россия",
-                "желтый",
-                190);
-        transport[1] = new Transport("Audi",
-                "A8 50 L TDI quattro",
-                2020,
-                "Германия",
-                "черный",
-                250);
-        transport[2] = new Transport("BMW",
-                "Z8",
-                2021,
-                "Германия",
-                "черный",
-                280);
-        transport[3] = new Transport("Kia",
-                "Sportage 4-го поколения",
-                2018,
-                "Южная Корея",
-                "красный",
-                230);
-        transport[4] = new Transport("Hyundai",
-                "Avante",
-                2016,
-                "Южная Корея",
-                "оранжевый",
-                200);
-
-        for (Transport i : transport) System.out.println(i);
-        System.out.println();
-
+        System.out.println("          Объекты класса Car:");
         Car[] cars = new Car[5];
-        cars[0] = new Car(transport[0].getBrand(),
-                transport[0].getModel(),
-                transport[0].getYear(),
-                transport[0].getCountry(),
-                transport[0].getColor(),
-                transport[0].getMaxSpeed(),
-                1.7f);
-        cars[1] = new Car(transport[1].getBrand(),
-                transport[1].getModel(),
-                transport[1].getYear(),
-                transport[1].getCountry(),
-                transport[1].getColor(),
-                transport[1].getMaxSpeed(),
-                3f);
-        cars[2] = new Car(transport[2].getBrand(),
-                transport[2].getModel(),
-                transport[2].getYear(),
-                transport[2].getCountry(),
-                transport[2].getColor(),
-                transport[2].getMaxSpeed(),
-                3f);
-        cars[3] = new Car(transport[3].getBrand(),
-                transport[3].getModel(),
-                transport[3].getYear(),
-                transport[3].getCountry(),
-                transport[3].getColor(),
-                transport[3].getMaxSpeed(),
-                2.4f);
-        cars[4] = new Car(transport[4].getBrand(),
-                transport[4].getModel(),
-                transport[4].getYear(),
-                transport[4].getCountry(),
-                transport[4].getColor(),
-                transport[4].getMaxSpeed(),
-                1.6f);
-
+        cars[0] = new Car("Lada", "Granta", 2015, "Россия", "желтый", 190,1.7F);
+        cars[1] = new Car("Audi", "A8 50 L TDI quattro", 2020,"Германия", "черный",250, 3.0F  );
+        cars[2] = new Car("BMW", "Z8", 2021, "Германия", "черный",300,3F);
+        cars[3] = new Car("Kia", "Sportage 4-го поколения", 2018, "Южная Корея", "красный",280, 2.4F);
+        cars[4] = new Car("Hyundai", "Avante", 2016,"Южная Корея", "оранжевый",220,1.6F);
 
         for (Car i :cars) System.out.println(i);
+        System.out.println();
 
+        System.out.println("          Объекты класса Bas:");
+        Bus[] buses = new Bus[3];
+        buses[0] = new Bus("Икарус", "365", 2010, "Венгрия", "красный", 110);
+        buses[1] = new Bus("ПАЗ", "Вектор NEXT 8.8", 2022, "Россия", "голубой", 100);
+        buses[2] = new Bus("ЛиАЗ", "6213", 2020, "Россия", "белый", 90);
+
+        for (Bus i : buses) System.out.println(i);
+
+        }
     }
-}

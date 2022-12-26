@@ -1,5 +1,6 @@
 package HomeWork2_3;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -25,7 +26,7 @@ public class Transport {
         this.brand = TransportService.isCorrectStringType(brand);
         this.model = TransportService.isCorrectStringType(model);
 
-        if (year >= 0) {
+        if (year >= 0 || year <= LocalDate.now().getYear()) {
             this.year = year;
         } else {
             this.year = 2000;
@@ -45,22 +46,18 @@ public class Transport {
     public String getBrand() {
         return brand;
     }
-
     public String getModel() {
         return model;
     }
     public int getYear() {
         return year;
     }
-
     public String getColor() {
         return color;
     }
-
     public String getCountry() {
         return country;
     }
-
     public int getMaxSpeed() { return maxSpeed; }
 
     public void setColor(String color) {

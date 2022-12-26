@@ -6,26 +6,6 @@ public class Car extends Transport {
 
     private float engineVolume;
 
-    /*public static class Key{
-        private final boolean remoteEngineStart;
-        private final boolean keylessEntry;
-
-        public Key(boolean remoteEngineStart, boolean keylessEntry) {
-            this.remoteEngineStart = remoteEngineStart;
-            this.keylessEntry = keylessEntry;
-            // проверять данные не вижу смысла, т.к. в типе boolean возможны только 2 значения : true / false
-            // в единственном конструкторе указаны оба поля и при введении значения отличный от true и false Java  будет выдавать ошибку
-        }*/
-
-       /* public boolean isRemoteEngineStart() {
-            return remoteEngineStart;
-        }
-
-        public boolean isKeylessEntry() {
-            return keylessEntry;
-        }
-    }*/
-
     public Car (String brend,
                 String model,
                 int year,
