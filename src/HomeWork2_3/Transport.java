@@ -5,12 +5,12 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Transport {
-    Transport[] transports = new Transport[5];
+
     private String brand;
     private String model;
     private final int year;
     private final String country;
-    String color;
+    private String color;
     private int maxSpeed;
 
     public Transport(String brand, String model, String country, int maxSpeed) {
@@ -61,9 +61,12 @@ public class Transport {
     public int getMaxSpeed() { return maxSpeed; }
 
     public void setColor(String color) {
-        this.color = color;
+        this.color = TransportService.isCorrectStringType(color);
     }
 
+    public void setMaxSpeed(int maxSpeed) {
+        this.maxSpeed = TransportService.isCorrectIntType(maxSpeed);
+    }
 
     @Override
     public String toString() {
@@ -80,13 +83,11 @@ public class Transport {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Transport transport = (Transport) o;
-        return year == transport.year && maxSpeed == transport.maxSpeed && Arrays.equals(transports, transport.transports) && brand.equals(transport.brand) && model.equals(transport.model) && country.equals(transport.country) && color.equals(transport.color);
+        return year == transport.year && maxSpeed == transport.maxSpeed && brand.equals(transport.brand) && model.equals(transport.model) && country.equals(transport.country) && color.equals(transport.color);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(brand, model, year, country, color, maxSpeed);
-        result = 31 * result + Arrays.hashCode(transports);
-        return result;
+        return Objects.hash(brand, model, year, country, color, maxSpeed);
     }
 }
