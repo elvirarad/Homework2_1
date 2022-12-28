@@ -5,39 +5,16 @@ import java.util.Objects;
 public class Transport {
     private String brand;
     private String model;
-    private final int year;
-    private final String country;
-    private String color;
-    private int maxSpeed;
+    private float engineVolume;
 
-    public Transport(String brand, String model, String country, int maxSpeed) {
-        this(brand, model, 2000, country,  "белый", maxSpeed);
-    }
-
-    public Transport(String brand,
-                     String model,
-                     int year,
-                     String country,
-                     String color,
-                     int maxSpeed) {
+    public Transport(String brand, String model, float engineVolume) {
         this.brand = TransportService.isCorrectStringType(brand);
         this.model = TransportService.isCorrectStringType(model);
-
-        if (year >= 0 || year <= LocalDate.now().getYear()) {
-            this.year = year;
+        if (engineVolume > 0F){
+            this.engineVolume = engineVolume;
         } else {
-            this.year = 2000;
+            this.engineVolume = 1.5F;
         }
-
-        this.country = TransportService.isCorrectStringType(country);
-
-        if (color == null || color.isEmpty()) {
-            this.color = "белый";
-        } else {
-            this.color = color;
-        }
-
-        this.maxSpeed = TransportService.isCorrectIntType(maxSpeed);
     }
 
     public String getBrand() {
@@ -46,33 +23,27 @@ public class Transport {
     public String getModel() {
         return model;
     }
-    public int getYear() {
-        return year;
-    }
-    public String getColor() {
-        return color;
-    }
-    public String getCountry() {
-        return country;
-    }
-    public int getMaxSpeed() { return maxSpeed; }
-
-    public void setColor(String color) {
-        this.color = TransportService.isCorrectStringType(color);
+    public float getEngineVolume() {
+        return engineVolume;
     }
 
-    public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = TransportService.isCorrectIntType(maxSpeed);
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setEngineVolume(float engineVolume) {
+        this.engineVolume = engineVolume;
     }
 
     @Override
     public String toString() {
         return "Марка " + brand +
                 ", модель " + model +
-                ", сборка " + country + ", " +
-                year + "г.выпуска " +
-                ", цвет кузова: " + color +
-                ", максимальная скорость передвижения - "+ maxSpeed + " км/ч.;";
+                ", объем двигателя = "  + engineVolume + "л.";
     }
 
     @Override
@@ -80,11 +51,11 @@ public class Transport {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Transport transport = (Transport) o;
-        return year == transport.year && maxSpeed == transport.maxSpeed && brand.equals(transport.brand) && model.equals(transport.model) && country.equals(transport.country) && color.equals(transport.color);
+        return Float.compare(transport.engineVolume, engineVolume) == 0 && brand.equals(transport.brand) && model.equals(transport.model);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, model, year, country, color, maxSpeed);
+        return Objects.hash(brand, model, engineVolume);
     }
 }
