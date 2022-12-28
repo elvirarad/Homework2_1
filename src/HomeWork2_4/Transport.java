@@ -41,8 +41,7 @@ public class Transport {
 
     @Override
     public String toString() {
-        return "Марка " + brand +
-                ", модель " + model +
+        return brand + " " + model +
                 ", объем двигателя = "  + engineVolume + "л.";
     }
 

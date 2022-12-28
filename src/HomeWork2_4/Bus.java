@@ -9,8 +9,8 @@ public class Bus extends Transport{
 
     @Override
     public String toString() {
-        return "Марка " + getBrand() +
-                ", модель " + getModel() +
-                " объем двигателя = " + getEngineVolume() + "л.";
+        return getBrand() +
+                " " + getModel() +
+                ", объем двигателя = " + getEngineVolume() + "л.";
     }
 }
