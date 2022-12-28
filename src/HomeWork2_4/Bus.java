@@ -1,7 +1,6 @@
-package HomeWork2_3;
+package HomeWork2_4;
 
-public class Bus extends Transport {
-
+public class Bus extends Transport{
     public Bus(String brand,
                String model,
                int year,

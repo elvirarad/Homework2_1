@@ -1,9 +1,8 @@
-package HomeWork2_3;
+package HomeWork2_4;
 
 import java.util.Objects;
 
-public class Car extends Transport {
-
+public class Car extends Transport{
     private float engineVolume;
 
     public Car (String brand,
@@ -40,20 +39,18 @@ public class Car extends Transport {
                 ", цвет кузова: " + getColor() +
                 ", максимальная скорость передвижения - "+ getMaxSpeed() + " км/ч.;" +
                 " объем двигателя = " + engineVolume + "л.";
-        //"Car{" + " объем двигателя = " + engineVolume + "л." + '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         Car car = (Car) o;
         return Float.compare(car.engineVolume, engineVolume) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), engineVolume);
+        return Objects.hash(engineVolume);
     }
 }
