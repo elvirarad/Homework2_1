@@ -2,12 +2,14 @@ package HomeWork2_4;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Transport {
+public abstract class Transport {
     private String brand;
     private String model;
     private float engineVolume;
 
-    public Transport(String brand, String model, float engineVolume) {
+    public Transport(String brand,
+                     String model,
+                     float engineVolume) {
         this.brand = TransportService.isCorrectStringType(brand);
         this.model = TransportService.isCorrectStringType(model);
         if (engineVolume > 0F){
@@ -38,6 +40,10 @@ public class Transport {
     public void setEngineVolume(float engineVolume) {
         this.engineVolume = engineVolume;
     }
+
+    public abstract void startMoving();
+
+    public abstract void finishTheMoving();
 
     @Override
     public String toString() {
