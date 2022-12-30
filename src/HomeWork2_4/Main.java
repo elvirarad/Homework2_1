@@ -61,5 +61,10 @@ public class Main {
         trucks[1].finishTheMoving();
         trucks[2].finishTheMoving();
         trucks[3].finishTheMoving();
+        System.out.println();
+
+        System.out.println("Пит-стоп " + buses[1].getBrand() + " " + buses[1].getModel() +  ": " + buses[1].getPitStop());
+        System.out.println("Лучшее время круга " + trucks[0].getBrand() + " " + trucks[0].getModel() +  ": " + trucks[0].getBestLapTime());
+        System.out.println("Максимальная скорость " + cars[3].getBrand() + " " + cars[3].getModel() +  ": " + cars[3].getMaxSpeed());
     }
 }

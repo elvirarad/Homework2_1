@@ -1,8 +1,7 @@
 package HomeWork2_4;
-import java.time.LocalDate;
 import java.util.Objects;
 
-public abstract class Transport {
+public abstract class Transport implements Competing{
     private String brand;
     private String model;
     private float engineVolume;
@@ -39,6 +38,21 @@ public abstract class Transport {
 
     public void setEngineVolume(float engineVolume) {
         this.engineVolume = engineVolume;
+    }
+
+    @Override
+    public String getPitStop() {
+        return "пит-стоп";
+    }
+
+    @Override
+    public int getBestLapTime() {
+        return 300;
+    }
+
+    @Override
+    public int getMaxSpeed() {
+        return 280;
     }
 
     public abstract void startMoving();
