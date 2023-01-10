@@ -86,5 +86,6 @@ public class Main {
             System.out.println(truck.getBrand() + " " + truck.getModel() + " Максимальная скорость: " + truck.getMaxSpeed());
         }
         System.out.println();
+
     }
 }
