@@ -1,6 +1,7 @@
 package HomeWork2_4;
 
 public final class DriverB extends Driver{
+    // implements Competing
     public DriverB (String fullName,
                    boolean havingADriversLicense,
                    int experience){

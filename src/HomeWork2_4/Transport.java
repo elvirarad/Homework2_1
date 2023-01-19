@@ -1,14 +1,16 @@
 package HomeWork2_4;
 import java.util.Objects;
 
-public abstract class Transport implements Competing{
+public abstract class Transport <T extends Driver>{
     private String brand;
     private String model;
     private float engineVolume;
+    private final T driver; // реализуем дженерик
 
     public Transport(String brand,
                      String model,
-                     float engineVolume) {
+                     float engineVolume,
+                     T driver) {
         this.brand = TransportService.isCorrectStringType(brand);
         this.model = TransportService.isCorrectStringType(model);
         if (engineVolume > 0F){
@@ -16,11 +18,17 @@ public abstract class Transport implements Competing{
         } else {
             this.engineVolume = 1.5F;
         }
+        this.driver = driver;
     }
 
     public String getBrand() {
         return brand;
     }
+
+    public T getDriver() {
+        return driver;
+    }
+
     public String getModel() {
         return model;
     }
@@ -38,21 +46,6 @@ public abstract class Transport implements Competing{
 
     public void setEngineVolume(float engineVolume) {
         this.engineVolume = engineVolume;
-    }
-
-    @Override
-    public String getPitStop() {
-        return "пит-стоп";
-    }
-
-    @Override
-    public int getBestLapTime() {
-        return 300;
-    }
-
-    @Override
-    public int getMaxSpeed() {
-        return 280;
     }
 
     public abstract void startMoving();

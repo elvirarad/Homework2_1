@@ -1,10 +1,8 @@
 package HomeWork2_4;
 
-public final class Bus extends Transport{
-    public Bus(String brand,
-               String model,
-               float engineVolume) {
-        super(brand, model, engineVolume);
+public final class Bus extends Transport <DriverD> implements Competing{
+    public Bus(String brand, String model, float engineVolume, DriverD driver) {
+        super(brand, model, engineVolume, driver);
     }
 
     @Override
@@ -25,5 +23,20 @@ public final class Bus extends Transport{
         return getBrand() +
                 " " + getModel() +
                 ", объем двигателя = " + getEngineVolume() + "л.";
+    }
+
+    @Override
+    public void getPitStop() {
+        System.out.println("проводим PitStop для автобуса");
+    }
+
+    @Override
+    public void getBestLapTime() {
+        System.out.println("лучшее время автобуса");
+    }
+
+    @Override
+    public void getMaxSpeed() {
+        System.out.println("максимальная скорость автобуса");
     }
 }

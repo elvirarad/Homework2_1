@@ -2,13 +2,15 @@ package HomeWork2_4;
 
 import java.util.Objects;
 
-public final class Car extends Transport{
+public final class Car extends Transport <DriverB> implements Competing {
 
-    public Car (String brand,
-                String model,
-                float engineVolume) {
-        super(brand, model, engineVolume);
+    public Car(String brand,
+               String model,
+               float engineVolume,
+               DriverB driver) {
+        super(brand, model, engineVolume, driver);
     }
+    //DriverB driver - новая переменная
 
     @Override
     public void startMoving(){
@@ -27,5 +29,20 @@ public final class Car extends Transport{
         return getBrand() +
                 " " + getModel() +
                 ", объем двигателя = " + getEngineVolume() + "л.";
+    }
+
+    @Override
+    public void getPitStop() {
+        System.out.println("проводим PitStop автомобиля");
+    }
+
+    @Override
+    public void getBestLapTime() {
+        System.out.println("лучшее время автомобиля");
+    }
+
+    @Override
+    public void getMaxSpeed() {
+        System.out.println("максимальная скорость автомобиля");
     }
 }
