@@ -38,11 +38,17 @@ public final class Car extends Transport <DriverB> implements Competing {
 
     @Override
     public void getBestLapTime() {
-        System.out.println("лучшее время автомобиля");
+        int minBound = 90;
+        int maxBound = 180;
+        int theBestLapTimeInMins = (int) (minBound + (maxBound - minBound) * Math.random());
+        System.out.println("лучшее время автомобиля в минутах = " + theBestLapTimeInMins);
     }
 
     @Override
     public void getMaxSpeed() {
-        System.out.println("максимальная скорость автомобиля");
+        int minBound = 90;
+        int maxBound = 180;
+        int maxSpeed = (int) (minBound + (maxBound - minBound) * Math.random());
+        System.out.println("максимальная скорость автомобиля: " + maxSpeed);
     }
 }

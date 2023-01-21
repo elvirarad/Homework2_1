@@ -1,24 +1,25 @@
-package HomeWork2_4;
+package HomeWork2_5;
+
 public class Main {
     public static void main(String[] args) {
 
         DriverB[] driverB = new DriverB[4];
-        driverB[0] = new DriverB ("Фернандо Алонсо", true, 9);
-        driverB[1] = new DriverB ("Шарль Леклер", true, 11);
-        driverB[2] = new DriverB ("Шумахер Михаэль", true, 13);
-        driverB[3] = new DriverB ("Хэмилтон Льюис", true, 7);
+        driverB[0] = new DriverB("Фернандо Алонсо", true, 9);
+        driverB[1] = new DriverB("Шарль Леклер", true, 11);
+        driverB[2] = new DriverB("Шумахер Михаэль", true, 13);
+        driverB[3] = new DriverB("Хэмилтон Льюис", true, 7);
 
         DriverC[] driverC = new DriverC[4];
-        driverC[0] = new DriverC ("Дмитрий Сотников", true, 12);
-        driverC[1] = new DriverC ("Руслан Ахмадеев", true, 11);
-        driverC[2] = new DriverC ("Ильгиз Ахметзянов", true, 7);
-        driverC[3] = new DriverC ("Радик Еникеев", true, 11);
+        driverC[0] = new DriverC("Дмитрий Сотников", true, 12);
+        driverC[1] = new DriverC("Руслан Ахмадеев", true, 11);
+        driverC[2] = new DriverC("Ильгиз Ахметзянов", true, 7);
+        driverC[3] = new DriverC("Радик Еникеев", true, 11);
 
         DriverD[] driverD = new DriverD[4];
-        driverD[0] = new DriverD ("Михаил Коган", true, 16);
-        driverD[1] = new DriverD ("Антон Храритонов", true, 15);
-        driverD[2] = new DriverD ("Асто Маньяна", true, 13);
-        driverD[3] = new DriverD ("Петр Дранго", true, 11);
+        driverD[0] = new DriverD("Михаил Коган", true, 16);
+        driverD[1] = new DriverD("Антон Храритонов", true, 15);
+        driverD[2] = new DriverD("Асто Маньяна", true, 13);
+        driverD[3] = new DriverD("Петр Дранго", true, 11);
 
 
         System.out.println("          Легковые автомобили:");
@@ -83,7 +84,7 @@ public class Main {
 
         System.out.println("   Соревнуются легковые автомобили:");
 
-        System.out.println(car.getBrand() + " " + car.getModel() + " Пит-стоп: " + car.getPitStop());
+     //   System.out.println(car.getBrand() + " " + car.getModel() + " Пит-стоп: " + car.getPitStop());
 //        for (Car car : cars) {
 //            System.out.println(car.getBrand() + " " + car.getModel() + " Пит-стоп: " + car.getPitStop());
 //            System.out.println(car.getBrand() + " " + car.getModel() + " Лучшее время круга: " + car.getBestLapTime());
@@ -125,7 +126,7 @@ public class Main {
         info(trucks[3]);
 
     }
-    private static void info(Transport <?> transport){
+    private static void info(Transport<?> transport){
         System.out.println("водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " и будет участвовать в заезде");
     }
 }

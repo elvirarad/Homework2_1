@@ -1,6 +1,6 @@
-package HomeWork2_4;
+package HomeWork2_5;
 
-public final class Bus extends Transport <DriverD> implements Competing{
+public final class Bus extends Transport<DriverD> implements Competing {
     public Bus(String brand,
                String model,
                float engineVolume,

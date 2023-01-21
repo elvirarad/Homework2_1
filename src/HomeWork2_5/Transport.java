@@ -1,4 +1,5 @@
-package HomeWork2_4;
+package HomeWork2_5;
+
 import java.util.Objects;
 
 public abstract class Transport <T extends Driver>{
@@ -62,4 +63,5 @@ public abstract class Transport <T extends Driver>{
     public int hashCode() {
         return Objects.hash(brand, model, engineVolume);
     }
+
 }
