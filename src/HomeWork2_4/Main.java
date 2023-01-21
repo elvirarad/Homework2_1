@@ -93,21 +93,27 @@ public class Main {
         }
         System.out.println();
 
-//        System.out.println("   Соревнуются автобусы:");
-//        for (Bus bus : buses) {
-//            System.out.println(bus.getBrand() + " " + bus.getModel() + " Пит-стоп: " + bus.getPitStop());
-//            System.out.println(bus.getBrand() + " " + bus.getModel() + " Лучшее время круга: " + bus.getBestLapTime());
-//            System.out.println(bus.getBrand() + " " + bus.getModel() + " Максимальная скорость: " + bus.getMaxSpeed());
-//        }
-//        System.out.println();
-//
-//        System.out.println("   Соревнуются грузовые автомобили:");
-//        for (Truck truck : trucks) {
-//            System.out.println(truck.getBrand() + " " + truck.getModel() + " Пит-стоп: " + truck.getPitStop());
-//            System.out.println(truck.getBrand() + " " + truck.getModel() + " Лучшее время круга: " + truck.getBestLapTime());
-//            System.out.println(truck.getBrand() + " " + truck.getModel() + " Максимальная скорость: " + truck.getMaxSpeed());
-//        }
-//        System.out.println();
+        System.out.println("   Соревнуются автобусы:");
+        for (Bus bus : buses) {
+            System.out.print(bus.getBrand() + " " + bus.getModel() + " Пит-стоп: ");
+                    bus.getPitStop();
+            System.out.print(bus.getBrand() + " " + bus.getModel() + " Лучшее время круга: ");
+                    bus.getBestLapTime();
+            System.out.print(bus.getBrand() + " " + bus.getModel() + " Максимальная скорость: ");
+                    bus.getMaxSpeed();
+        }
+        System.out.println();
+
+        System.out.println("   Соревнуются грузовые автомобили:");
+        for (Truck truck : trucks) {
+            System.out.print(truck.getBrand() + " " + truck.getModel() + " Пит-стоп: ");
+            truck.getPitStop();
+            System.out.print(truck.getBrand() + " " + truck.getModel() + " Лучшее время круга: ");
+            truck.getBestLapTime();
+            System.out.print(truck.getBrand() + " " + truck.getModel() + " Максимальная скорость: ");
+            truck.getMaxSpeed();
+        }
+        System.out.println();
 
         info(cars[0]);
         info(cars[1]);
