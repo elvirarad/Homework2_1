@@ -24,30 +24,30 @@ public class Main {
 
         System.out.println("          Легковые автомобили:");
         Car[] cars = new Car[4];
-        cars[0] = new Car("Ford", "Focus RS WRC", 2F, driverB[0]);
-        cars[1] = new Car("Opel", "Corsa", 2.1F, driverB[1]);
-        cars[2] = new Car("Peugeot", "Sport", 2F, driverB[2]);
-        cars[3] = new Car("Citroen", "C2", 2F, driverB[3]);
+        cars[0] = new Car("Ford", "Focus RS WRC", 2F, driverB[0], BodyType.SEDAN);
+        cars[1] = new Car("Opel", "Corsa", 2.1F, driverB[1], BodyType.HATCHBACK);
+        cars[2] = new Car("Peugeot", "Sport", 2F, driverB[2], BodyType.PICKUP);
+        cars[3] = new Car("Citroen", "C2", 2F, driverB[3], BodyType.CROSSOVER);
 
         for (Car i : cars) System.out.println(i);
         System.out.println();
 
         System.out.println("          Автобусы:");
         Bus[] buses = new Bus[4];
-        buses[0] = new Bus("Икарус", "365", 5F, driverD[0]);
-        buses[1] = new Bus("ПАЗ", "Вектор NEXT 8.8", 4F, driverD[1]);
-        buses[2] = new Bus("ЛиАЗ", "6213", 6F, driverD[2]);
-        buses[3] = new Bus("НЕФАЗ", "4208-34", 11.7F, driverD[3]);
+        buses[0] = new Bus("Икарус", "365", 5F, driverD[0], Capacity.EXTREMELY_SMALL);
+        buses[1] = new Bus("ПАЗ", "Вектор NEXT 8.8", 4F, driverD[1], Capacity.SMALL);
+        buses[2] = new Bus("ЛиАЗ", "6213", 6F, driverD[2], Capacity.EXTREMELY_LARGE);
+        buses[3] = new Bus("НЕФАЗ", "4208-34", 11.7F, driverD[3], Capacity.EXTREMELY_LARGE);
 
         for (Bus i : buses) System.out.println(i);
         System.out.println();
 
         System.out.println("          Грузовые автомобили:");
         Truck[] trucks = new Truck[4];
-        trucks[0] = new Truck("КАМАЗ", "4326", 16.2F, driverC[0]);
-        trucks[1] = new Truck("МАЗ", "6440 RR", 12.5F, driverC[1]);
-        trucks[2] = new Truck("Praga", "V4S DKR", 16F, driverC[2]);
-        trucks[3] = new Truck("Tatra", "Phoenix", 1.9F, driverC[3]);
+        trucks[0] = new Truck("КАМАЗ", "4326", 16.2F, driverC[0], LoadCapacity.N2);
+        trucks[1] = new Truck("МАЗ", "6440 RR", 12.5F, driverC[1], LoadCapacity.N1);
+        trucks[2] = new Truck("Praga", "V4S DKR", 16F, driverC[2], LoadCapacity.N3);
+        trucks[3] = new Truck("Tatra", "Phoenix", 1.9F, driverC[3], LoadCapacity.N1);
 
         for (Truck i : trucks) System.out.println(i);
         System.out.println();
@@ -83,7 +83,9 @@ public class Main {
         System.out.println();
 
         System.out.println("   Соревнуются легковые автомобили:");
-
+//        for (int i = 0; i < cars.length; i++) {
+//            System.out.println(cars[i].getBrand() + " " + cars[i].getModel() + " Пит-стоп: ");
+//            cars[i].getPitStop();
      //   System.out.println(car.getBrand() + " " + car.getModel() + " Пит-стоп: " + car.getPitStop());
 //        for (Car car : cars) {
 //            System.out.println(car.getBrand() + " " + car.getModel() + " Пит-стоп: " + car.getPitStop());
@@ -125,6 +127,9 @@ public class Main {
         info(trucks[2]);
         info(trucks[3]);
 
+        cars[0].printType();
+        buses[1].printType();
+        trucks[2].printType();
     }
     private static void info(Transport<?> transport){
         System.out.println("водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " и будет участвовать в заезде");

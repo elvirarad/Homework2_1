@@ -1,11 +1,23 @@
 package HomeWork2_5;
 
 public final  class Truck extends Transport<DriverC> implements Competing {
+
+    private LoadCapacity loadCapacity;
     public Truck(String brand,
                  String model,
                  float engineVolume,
-                 DriverC driver) {
+                 DriverC driver,
+                 LoadCapacity loadCapacity) {
         super(brand, model, engineVolume, driver);
+        this.loadCapacity = loadCapacity;
+    }
+
+    public LoadCapacity getLoadCapacity() {
+        return loadCapacity;
+    }
+
+    public void setLoadCapacity(LoadCapacity loadCapacity) {
+        this.loadCapacity = loadCapacity;
     }
 
     @Override
@@ -17,6 +29,20 @@ public final  class Truck extends Transport<DriverC> implements Competing {
     @Override
     public void finishTheMoving(){
         System.out.println("1. Грузовик " + getBrand() + " "+ getModel()+ " финишировал");
+    }
+
+    @Override
+    public void printType() {
+        if (loadCapacity == null){
+            System.out.println("Данных по грузовику недостаточно");
+        } else {
+            String loadCapacityLowerLimit = loadCapacity.getLowerLimit() == null ? "" : "от " +
+                    loadCapacity.getLowerLimit() + " тонн";
+            String loadCapacityUpperLimit = loadCapacity.getUpperLimit() == null ? "" : " до " +
+                    loadCapacity.getUpperLimit() + " тонн";
+            // третичный оператор
+            System.out.println("Грузоподъемность: " + loadCapacityLowerLimit + loadCapacityUpperLimit);
+        }
     }
 
     @Override

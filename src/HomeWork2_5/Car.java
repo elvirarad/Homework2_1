@@ -1,14 +1,25 @@
 package HomeWork2_5;
 
     public final class Car extends Transport<DriverB> implements Competing {
+        private BodyType bodyType;
 
         public Car(String brand,
                    String model,
                    float engineVolume,
-                   DriverB driver) {
+                   DriverB driver,
+                   BodyType bodyType) {
             super(brand, model, engineVolume, driver);
+            this.bodyType = bodyType;
         }
         //DriverB driver - новая переменная
+
+        public BodyType getBodyType() {
+            return bodyType;
+        }
+
+        public void setBodyType(BodyType bodyType) {
+            this.bodyType = bodyType;
+        }
 
         @Override
         public void startMoving(){
@@ -20,6 +31,15 @@ package HomeWork2_5;
         @Override
         public void finishTheMoving(){
             System.out.println("1." + getBrand() + " "+ getModel()+ " финишировал");
+        }
+
+        @Override
+        public void printType() {
+            if (bodyType == null){
+                System.out.println("Данных по автомобилю недостаточно");
+            } else {
+                System.out.println(bodyType);
+            }
         }
 
         @Override

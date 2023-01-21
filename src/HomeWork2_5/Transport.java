@@ -45,6 +45,8 @@ public abstract class Transport <T extends Driver>{
 
     public abstract void finishTheMoving();
 
+    public abstract void printType();
+
     @Override
     public String toString() {
         return brand + " " + model +
