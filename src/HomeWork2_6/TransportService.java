@@ -1,4 +1,4 @@
-package HomeWork2_5;
+package HomeWork2_6;
 
 public class TransportService {
     Transport[] transports = new Transport[5];
@@ -18,4 +18,5 @@ public class TransportService {
         }
         return object;
     }
+
 }
