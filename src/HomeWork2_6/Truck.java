@@ -46,6 +46,11 @@ public final  class Truck extends Transport<DriverC> implements Competing {
     }
 
     @Override
+    public void passDiagnostics() {
+        System.out.println("Проходит диагностику грузовик " + getBrand() + " " + getModel());
+    }
+
+    @Override
     public String toString() {
         return getBrand() +
                 " " + getModel() +

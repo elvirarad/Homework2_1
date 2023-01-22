@@ -47,6 +47,18 @@ public abstract class Transport <T extends Driver>{
 
     public abstract void printType();
 
+    public abstract void passDiagnostics();
+    public static void checkDiagnostics(Transport ... transports){
+        for (Transport transport : transports) {
+            try {
+                transport.passDiagnostics();
+            } catch (UnsupportedClassVersionError e) {
+                System.out.println("Ошибка при диагностике");
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
     @Override
     public String toString() {
         return brand + " " + model +

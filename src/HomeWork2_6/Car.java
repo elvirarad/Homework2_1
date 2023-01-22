@@ -43,6 +43,11 @@ package HomeWork2_6;
         }
 
         @Override
+        public void passDiagnostics() {
+            System.out.println("Проходит диагностику автомобиль " + getBrand() + " " + getModel());
+        }
+
+        @Override
         public String toString() {
             return getBrand() +
                     " " + getModel() +

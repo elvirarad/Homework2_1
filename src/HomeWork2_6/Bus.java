@@ -43,6 +43,11 @@ public final class Bus extends Transport<DriverD> implements Competing {
     }
 
     @Override
+    public void passDiagnostics() {
+        throw new UnsupportedOperationException("Автобус" + getBrand()+ " " + getModel() + " не проходит диагностику");
+    }
+
+    @Override
     public String toString() {
         return getBrand() +
                 " " + getModel() +

@@ -15,6 +15,14 @@ public enum Capacity {
         CapacityUpperLimit = capacityUpperLimit;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Capacity{" +
+//                "CapacityLowerLimit=" + CapacityLowerLimit +
+//                ", CapacityUpperLimit=" + CapacityUpperLimit +
+//                '}';
+//    }
+
     public Integer getCapacityLowerLimit() {
         return CapacityLowerLimit;
     }
