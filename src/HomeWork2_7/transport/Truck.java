@@ -1,10 +1,9 @@
-package HomeWork2_6.transport;
+package HomeWork2_7.transport;
 
-import HomeWork2_6.driver.DriverC;
-import HomeWork2_6.transport.Competing;
-import HomeWork2_6.transport.LoadCapacity;
-import HomeWork2_6.transport.Transport;
-
+import HomeWork2_7.driver.DriverC;
+import HomeWork2_7.transport.Competing;
+import HomeWork2_7.transport.LoadCapacity;
+import HomeWork2_7.transport.Transport;
 public final  class Truck extends Transport<DriverC> implements Competing {
 
     private LoadCapacity loadCapacity;

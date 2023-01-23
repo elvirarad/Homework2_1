@@ -40,7 +40,7 @@ public final  class Truck extends Transport<DriverC> implements Competing {
                     loadCapacity.getLowerLimit() + " тонн";
             String loadCapacityUpperLimit = loadCapacity.getUpperLimit() == null ? "" : " до " +
                     loadCapacity.getUpperLimit() + " тонн";
-            // третичный оператор
+            // тернарный оператор
             System.out.println("Грузоподъемность: " + loadCapacityLowerLimit + loadCapacityUpperLimit);
         }
     }
