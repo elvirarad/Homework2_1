@@ -48,12 +48,12 @@ public abstract class Transport <T extends Driver>{
     public abstract void printType();
 
     public abstract void passDiagnostics();
-    public static void checkDiagnostics(Transport ... transports){
+    public static void checkDiagnosticsException(Transport... transports){
         for (Transport transport : transports) {
             try {
                 transport.passDiagnostics();
-            } catch (UnsupportedClassVersionError e) {
-                System.out.println("Ошибка при диагностике");
+            } catch (UnsupportedOperationException e) {
+                System.out.println("Произошла ошибка");
                 System.out.println(e.getMessage());
             }
         }

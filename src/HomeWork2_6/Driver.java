@@ -5,10 +5,12 @@ public abstract class Driver {
     private boolean havingADriversLicense;
     private int experience;
     String hADriversLicense;
+    private String category;
 
     public Driver(String fullName,
                   boolean havingADriversLicense,
-                  int experience) {
+                  int experience,
+                  String category) throws DriversLicenseException {
         this.fullName = TransportService.isCorrectStringType(fullName);
         this.havingADriversLicense = havingADriversLicense;
         this.experience = TransportService.isCorrectIntType(experience);
@@ -16,6 +18,21 @@ public abstract class Driver {
         if (havingADriversLicense) {
             hADriversLicense = "имеются";
         } else hADriversLicense = "нет";
+        setCategory(category);
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) throws DriversLicenseException {
+        if (category == null || category.isEmpty()) {
+            throw new DriversLicenseException(" категория прав не определена для водителя " + getFullName());
+        } else if (category.equals("B") || category.equals("C") || category.equals("D")) {
+            this.category = category;
+        } else {
+            throw new DriversLicenseException(" категория прав не определена для водителя " + getFullName());
+        }
     }
 
     public String getFullName() {

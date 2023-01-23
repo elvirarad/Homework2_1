@@ -3,8 +3,9 @@ package HomeWork2_6;
 public final class DriverB extends Driver {
     public DriverB (String fullName,
                     boolean havingADriversLicense,
-                    int experience){
-        super(fullName, havingADriversLicense, experience);
+                    int experience,
+                    String category) throws DriversLicenseException {
+        super(fullName, havingADriversLicense, experience, category);
     }
     @Override
     public void startMoving(){};
