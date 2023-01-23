@@ -1,4 +1,4 @@
-package HomeWork2_6;
+package HomeWork2_6.transport;
 
 public enum LoadCapacity {
     N1(0D,3.5),

@@ -1,4 +1,4 @@
-package HomeWork2_6;
+package HomeWork2_6.driver;
 
 public final class DriverC extends Driver {
     public DriverC (String fullName,

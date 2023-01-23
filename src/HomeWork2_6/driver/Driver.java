@@ -1,4 +1,6 @@
-package HomeWork2_6;
+package HomeWork2_6.driver;
+
+import HomeWork2_6.transport.TransportService;
 
 public abstract class Driver {
     private String fullName;

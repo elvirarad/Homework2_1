@@ -1,5 +1,11 @@
 package HomeWork2_6;
 
+import HomeWork2_6.driver.DriverB;
+import HomeWork2_6.driver.DriverC;
+import HomeWork2_6.driver.DriverD;
+import HomeWork2_6.driver.DriversLicenseException;
+import HomeWork2_6.transport.*;
+
 public class Main {
     public static void main(String[] args) throws DriversLicenseException {
 

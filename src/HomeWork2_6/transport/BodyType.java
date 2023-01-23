@@ -1,4 +1,4 @@
-package HomeWork2_6;
+package HomeWork2_6.transport;
 
 public enum BodyType {
     SEDAN("Седан"),

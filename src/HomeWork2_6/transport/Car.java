@@ -1,6 +1,8 @@
-package HomeWork2_6;
+package HomeWork2_6.transport;
 
-    public final class Car extends Transport<DriverB> implements Competing {
+import HomeWork2_6.driver.DriverB;
+
+public final class Car extends Transport<DriverB> implements Competing {
         private BodyType bodyType;
 
         public Car(String brand,

@@ -1,4 +1,4 @@
-package HomeWork2_6;
+package HomeWork2_6.transport;
 
 public enum Capacity {
     EXTREMELY_SMALL(0,10),

@@ -1,4 +1,6 @@
-package HomeWork2_6;
+package HomeWork2_6.transport;
+
+import HomeWork2_6.transport.Transport;
 
 public class TransportService {
     Transport[] transports = new Transport[5];
