@@ -1,6 +1,6 @@
-package HomeWork2_7.transport;
+package HomeWork2_8.transport;
 
-import HomeWork2_7.driver.Driver;
+import HomeWork2_8.driver.Driver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,8 +42,12 @@ public abstract class Transport <T extends Driver>{
         return engineVolume;
     }
     public List<Mechanic> getMechanics() { return mechanics;}
-    public void addMechanic(Mechanic mechanic){ mechanics.add(mechanic);}
-    public void setEngineVolume(float engineVolume) {
+    public void addMechanic(Mechanic mechanic) {
+        if (!mechanics.contains(mechanic)) {
+            mechanics.add(mechanic);
+        }
+    }
+    public void setEngineVolume ( float engineVolume){
         this.engineVolume = engineVolume;
     }
 

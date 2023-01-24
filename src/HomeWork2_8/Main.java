@@ -1,13 +1,15 @@
-package HomeWork2_7;
+package HomeWork2_8;
 
-import HomeWork2_7.driver.DriverB;
-import HomeWork2_7.driver.DriverC;
-import HomeWork2_7.driver.DriverD;
-import HomeWork2_7.driver.DriversLicenseException;
-import HomeWork2_7.transport.*;
+import HomeWork2_8.driver.DriverB;
+import HomeWork2_8.driver.DriverC;
+import HomeWork2_8.driver.DriverD;
+import HomeWork2_8.driver.DriversLicenseException;
+import HomeWork2_8.transport.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) throws DriversLicenseException {
@@ -170,7 +172,7 @@ public class Main {
         trucks[3].addMechanic(mechanic4);
         trucks[3].addMechanic(mechanic2);
 
-        for (Transport <?> transport : racers){
+        for (Transport<?> transport : racers){
             System.out.println(transport + " \n Водитель: \n" + transport.getDriver() + " \n Механик: \n" + transport.getMechanics());
         }
 
@@ -185,6 +187,11 @@ public class Main {
         serviceStation.carryOutMaintenance();
         serviceStation.carryOutMaintenance();
 
+        Map<Transport<?>, List<Mechanic>> transportMechanicMap = new HashMap<>();
+        for (Transport<?> racer: racers){
+            transportMechanicMap.put(racer, racer.getMechanics());
+        }
+        System.out.println(transportMechanicMap);
     }
     private static void info(Transport<?> transport){
         System.out.println("водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " и будет участвовать в заезде");
