@@ -1,10 +1,10 @@
-package HomeWork2_6;
+package HomeWork2_8;
 
-import HomeWork2_6.driver.DriverB;
-import HomeWork2_6.driver.DriverC;
-import HomeWork2_6.driver.DriverD;
-import HomeWork2_6.driver.DriversLicenseException;
-import HomeWork2_6.transport.*;
+import HomeWork2_8.driver.DriverB;
+import HomeWork2_8.driver.DriverC;
+import HomeWork2_8.driver.DriverD;
+import HomeWork2_8.driver.DriversLicenseException;
+import HomeWork2_8.transport.*;
 
 public class Main {
     public static void main(String[] args) throws DriversLicenseException {
@@ -144,13 +144,12 @@ public class Main {
     trucks[2].printType();
 
     Transport.checkDiagnosticsException(cars[1], trucks[0], buses[3]);
-//    try {
-//        driverB[1].setCategory("h");
-//    } catch (DriversLicenseException e){
-//        System.out.println("Произошла ошибка");
-//        System.out.println(e.getMessage());
-//    }
-
+    try {
+        driverB[1].setCategory("h");
+    } catch (DriversLicenseException e){
+        System.out.println("Произошла ошибка");
+        System.out.println(e.getMessage());
+    }
 }
     private static void info(Transport<?> transport){
         System.out.println("водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " и будет участвовать в заезде");
