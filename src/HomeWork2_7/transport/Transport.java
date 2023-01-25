@@ -2,6 +2,8 @@ package HomeWork2_7.transport;
 
 import HomeWork2_7.driver.Driver;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Transport <T extends Driver>{
@@ -9,6 +11,7 @@ public abstract class Transport <T extends Driver>{
     private final String model;
     private float engineVolume;
     private final T driver; // реализуем дженерик
+    private final List<Mechanic> mechanics = new ArrayList<>();
 
     public Transport(String brand,
                      String model,
@@ -37,6 +40,14 @@ public abstract class Transport <T extends Driver>{
     }
     public float getEngineVolume() {
         return engineVolume;
+    }
+
+    public List<Mechanic> getMechanics() {
+        return mechanics;
+    }
+
+    public void addMechanic(Mechanic mechanic){
+        mechanics.add(mechanic);
     }
 
     public void setEngineVolume(float engineVolume) {

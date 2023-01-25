@@ -6,6 +6,9 @@ import HomeWork2_7.driver.DriverD;
 import HomeWork2_7.driver.DriversLicenseException;
 import HomeWork2_7.transport.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) throws DriversLicenseException {
 
@@ -143,13 +146,46 @@ public class Main {
     buses[1].printType();
     trucks[2].printType();
 
-    Transport.checkDiagnosticsException(cars[1], trucks[0], buses[3]);
-    try {
-        driverB[1].setCategory("h");
-    } catch (DriversLicenseException e){
-        System.out.println("Произошла ошибка");
-        System.out.println(e.getMessage());
+//    Transport.checkDiagnosticsException(cars[1], trucks[0], buses[3]);
+//    try {
+//        driverB[1].setCategory("h");
+//    } catch (DriversLicenseException e){
+//        System.out.println("Произошла ошибка");
+//        System.out.println(e.getMessage());
+//    }
+
+    List<Transport<?>> racers = new ArrayList<>();
+
+    racers.add(cars[1]);
+    racers.add(buses[0]);
+    racers.add(trucks[3]);
+
+    Mechanic mechanic1 = new Mechanic("Андрей", "компания1", TransportType.CAR);
+    Mechanic mechanic2 = new Mechanic("Алекс", "компания2", TransportType.ALL);
+    Mechanic mechanic3 = new Mechanic("Антон", "компания3", TransportType.BUS);
+    Mechanic mechanic4 = new Mechanic("Афонасий", "компания1", TransportType.TRUCK);
+
+    cars[1].addMechanic(mechanic1);
+    cars[2].addMechanic(mechanic2);
+    buses[0].addMechanic(mechanic3);
+    trucks[3].addMechanic(mechanic4);
+    trucks[3].addMechanic(mechanic2);
+
+    for (Transport <?> transport : racers){
+        System.out.println(transport + " \n Водитель: \n" + transport.getDriver() + " \n Механик: \n" + transport.getMechanics());
     }
+
+    ServiceStation serviceStation = new ServiceStation();
+    serviceStation.addCarToQueue(cars[1]);
+    serviceStation.addCarToQueue(cars[2]);
+    serviceStation.addCarToQueue(buses[0]);
+    serviceStation.addCarToQueue(trucks[3]);
+
+    serviceStation.carryOutMaintenance();
+        serviceStation.carryOutMaintenance();
+        serviceStation.carryOutMaintenance();
+        serviceStation.carryOutMaintenance();
+
 }
     private static void info(Transport<?> transport){
         System.out.println("водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " и будет участвовать в заезде");
