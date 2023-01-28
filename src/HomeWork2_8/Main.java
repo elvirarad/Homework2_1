@@ -84,9 +84,9 @@ public class Main {
     System.out.println();
 
     trucks[0].startMoving();
-    trucks[1].startMoving();
-    trucks[2].startMoving();
-    trucks[3].startMoving();
+//    trucks[1].startMoving();
+//    trucks[2].startMoving();
+//    trucks[3].startMoving();
     trucks[0].finishTheMoving();
     trucks[1].finishTheMoving();
     trucks[2].finishTheMoving();
