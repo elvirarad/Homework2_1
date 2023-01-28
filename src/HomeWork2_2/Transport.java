@@ -1,0 +1,142 @@
+package HomeWork2_2;
+
+import java.util.Objects;
+import java.time.LocalDate;
+
+public class Transport {
+Transport[] transports = new Transport[5];
+        private final String brand;
+        private final String model;
+        private float engineVolume;
+        String color;
+        private final int year;
+        private final String country;
+        String transmission;
+        private final String bodyType;
+        String registrationNumber;
+        private final int numberOfSeats;
+        boolean summerOrWinterTires;
+
+        public String determinationOfTheTypeOfTires(boolean summerOrWinterTires) {
+            String tires;
+            if (summerOrWinterTires) {
+                tires = "летняя";
+            } else {
+                tires = "зимняя";
+            }
+            return tires;
+        }
+
+        public Transport(String brand, String model, String country, float engineVolume, String transmission, String bodyType, String registrationNumber, int numberOfSeats, boolean summerOrWinterTires) {
+            this(brand, model, country, engineVolume, 2000, "белый", transmission, bodyType, registrationNumber, numberOfSeats, summerOrWinterTires);
+        }
+
+        public Transport(String brand, String model, String country, float engineVolume, int year, String color, String transmission, String bodyType, String registrationNumber, int numberOfSeats, boolean summerOrWinterTires) {
+            this.brand = TransportService.isCorrectStringType(brand);
+            this.model = TransportService.isCorrectStringType(model);
+            this.country = TransportService.isCorrectStringType(country);
+
+            if (year >= 0) {
+                this.year = year;
+            } else {
+                this.year = 2000;
+            }
+
+            if (color == null || color.isEmpty()) {
+                this.color = "белый";
+            } else {
+                this.color = color;
+            }
+
+            if (engineVolume > 0F) {
+                this.engineVolume = engineVolume;
+            } else {
+                this.engineVolume = 1.5F;
+            }
+            this.transmission = TransportService.isCorrectStringType(transmission);
+            this.bodyType = TransportService.isCorrectStringType(bodyType);
+            this.registrationNumber = TransportService.isCorrectRegistrationNumber(registrationNumber);
+            this.numberOfSeats = TransportService.isCorrectIntType(numberOfSeats);
+            this.summerOrWinterTires = summerOrWinterTires;
+        }
+
+        public String getBrand() {
+            return brand;
+        }
+
+        public String getModel() {
+            return model;
+        }
+
+        public float getEngineVolume() {
+            return engineVolume;
+        }
+
+        public String getColor() {
+            return color;
+        }
+
+        public int getYear() {
+            return year;
+        }
+
+        public String getCountry() {
+            return country;
+        }
+
+        public String getTransmission() {
+            return transmission;
+        }
+
+        public String getBodyType() {
+            return bodyType;
+        }
+
+        public String getRegistrationNumber() {
+            return registrationNumber;
+        }
+
+        public int getNumberOfSeats() {
+            return numberOfSeats;
+        }
+
+        public boolean isSummerOrWinterTires() {
+            return summerOrWinterTires;
+        }
+
+        public void setColor(String color) {
+            this.color = color;
+        }
+
+        public void setTransmission(String transmission) {
+            this.transmission = transmission;
+        }
+
+        public void setRegistrationNumber(String registrationNumber) {
+            this.registrationNumber = registrationNumber;
+        }
+
+        public void setSummerOrWinterTires(boolean summerOrWinterTires) {
+            this.summerOrWinterTires = summerOrWinterTires;
+        }
+
+        @Override
+        public String toString() {
+            return "Марка " + brand + ", модель " + model + " " + year + "г.выпуска, сборка " + country + ", цвет кузова: " + color + ", объём двигателя - " + engineVolume + ", коробка передач " + transmission + ", тип кузова - " + bodyType + ", рег.№ " + registrationNumber + ", количество мест - " + numberOfSeats + ", резина - " + determinationOfTheTypeOfTires(summerOrWinterTires) + ";";
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            HomeWork2_2.Transport transport = (HomeWork2_2.Transport) o;
+            return Float.compare(transport.engineVolume, engineVolume) == 0 && year == transport.year && numberOfSeats == transport.numberOfSeats && summerOrWinterTires == transport.summerOrWinterTires && brand.equals(transport.brand) && model.equals(transport.model) && color.equals(transport.color) && country.equals(transport.country) && transmission.equals(transport.transmission) && bodyType.equals(transport.bodyType) && registrationNumber.equals(transport.registrationNumber);
+        }
+
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(brand, model, engineVolume, color, year, country, transmission, bodyType, registrationNumber, numberOfSeats, summerOrWinterTires);
+        }
+    }
+
