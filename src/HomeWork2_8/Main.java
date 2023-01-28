@@ -74,9 +74,9 @@ public class Main {
     System.out.println();
 
     buses[0].startMoving();
-//    buses[1].startMoving();
-//    buses[2].startMoving();
-//    buses[3].startMoving();
+    buses[1].startMoving();
+    buses[2].startMoving();
+    buses[3].startMoving();
     buses[0].finishTheMoving();
     buses[1].finishTheMoving();
     buses[2].finishTheMoving();
@@ -95,14 +95,14 @@ public class Main {
 
     System.out.println("   Соревнуются легковые автомобили:");
 
-    for (int i = 0; i < cars.length; i++) {
-        System.out.print(cars[i].getBrand() + " " + cars[i].getModel() + " Пит-стоп: ");
-        cars[i].getPitStop();
-        System.out.print(cars[i].getBrand() + " " + cars[i].getModel() + " Лучшее время круга: ");
-        cars[i].getBestLapTime();
-        System.out.print(cars[i].getBrand() + " " + cars[i].getModel() + " Максимальная скорость: ");
-        cars[i].getMaxSpeed();
-    }
+        for (Car car : cars) {
+            System.out.print(car.getBrand() + " " + car.getModel() + " Пит-стоп: ");
+            car.getPitStop();
+            System.out.print(car.getBrand() + " " + car.getModel() + " Лучшее время круга: ");
+            car.getBestLapTime();
+            System.out.print(car.getBrand() + " " + car.getModel() + " Максимальная скорость: ");
+            car.getMaxSpeed();
+        }
     System.out.println();
 
     System.out.println("   Соревнуются автобусы:");
