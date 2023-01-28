@@ -74,9 +74,9 @@ public class Main {
     System.out.println();
 
     buses[0].startMoving();
-    buses[1].startMoving();
-    buses[2].startMoving();
-    buses[3].startMoving();
+//    buses[1].startMoving();
+//    buses[2].startMoving();
+//    buses[3].startMoving();
     buses[0].finishTheMoving();
     buses[1].finishTheMoving();
     buses[2].finishTheMoving();
