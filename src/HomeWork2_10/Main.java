@@ -1,7 +1,6 @@
 package HomeWork2_10;
 
-import HomeWork2_10.driver.*;
-import HomeWork2_10.transport.*;
+
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -10,7 +9,7 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class Main {
-    public static void main(String[] args) throws DriversLicenseException {
+    public static void main(String[] args)  {
 // "Задание 1"
         Predicate<Integer> testPlus = new Predicate<Integer>() {
             @Override
