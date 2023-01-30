@@ -65,7 +65,7 @@ public class Main {
         };
         System.out.println(randomIn.get());
 
-        System.out.println("лямбда:");
+        System.out.println("лямбда: ");
         Supplier<Integer> randomIn2 = () -> {
                 Random random = new Random();
                 return random.nextInt(100);
