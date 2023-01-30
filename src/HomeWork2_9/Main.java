@@ -1,20 +1,14 @@
 package HomeWork2_9;
 
-import HomeWork2_9.driver.DriverB;
-import HomeWork2_9.driver.DriverC;
-import HomeWork2_9.driver.DriverD;
-import HomeWork2_9.driver.DriversLicenseException;
+import HomeWork2_9.driver.*;
 import HomeWork2_9.transport.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws DriversLicenseException {
 
-    DriverB[] driverB = new DriverB[4];
+        DriverB[] driverB = new DriverB[4];
     driverB[0] = new DriverB("Фернандо Алонсо", true, 9, "B");
     driverB[1] = new DriverB("Шарль Леклер", true, 11, "B");
     driverB[2] = new DriverB("Шумахер Михаэль", true, 13, "B");
@@ -191,7 +185,26 @@ public class Main {
         for (Transport<?> racer: racers){
             transportMechanicMap.put(racer, racer.getMechanics());
         }
-        System.out.println(transportMechanicMap);
+//        System.out.println(transportMechanicMap);
+//        for (Map.Entry<Transport<?>, List<Mechanic>> transportMechanicMap1 : transportMechanicMap.entrySet()){
+//            System.out.println(transportMechanicMap1.getKey() + " " + transportMechanicMap1.getValue());
+//        }
+
+        System.out.println("---------------");
+
+        Set<Driver> driverSet = new HashSet<>();
+        driverSet.add(driverB[2]);
+        driverSet.add(driverD[0]);
+        driverSet.add(driverD[0]);
+        driverSet.add(driverC[1]);
+        driverSet.add(driverD[3]);
+        //driverSet.iterator().forEachRemaining(System.out::println);
+        // 2й вариант
+        Iterator<Driver> iterator = driverSet.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+
     }
     private static void info(Transport<?> transport){
         System.out.println("водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " и будет участвовать в заезде");
