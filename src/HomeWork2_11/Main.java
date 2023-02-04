@@ -27,6 +27,8 @@ public class Main {
                 (x, y) -> System.out.println("Минимальное значение в стриме: " + x +
                         "   Максимальное  значение в стриме: " + y));
 
+        // задача 2
+        countEvenNumbers(integerList);
     }
     public static <T> void findMinMax (Stream<? extends T> stream,
                                        Comparator<? super T> order,
@@ -43,5 +45,9 @@ public class Main {
         }
         minMaxConsumer.accept(min, max);
     }
-
+    public static void countEvenNumbers(List<Integer> list){
+        System.out.println("Количество чётных чисел: " + list.stream()
+                .filter(x -> x%2 == 0)
+                .count());
+    }
 }
