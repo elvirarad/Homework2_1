@@ -87,7 +87,7 @@ public class Main {
             System.out.print(cars[i].getBrand() + " " + cars[i].getModel() + " Пит-стоп: ");
             cars[i].getPitStop();
             System.out.print(cars[i].getBrand() + " " + cars[i].getModel() + " Лучшее время круга: ");
-                    cars[i].getBestLapTime();
+            cars[i].getBestLapTime();
             System.out.print(cars[i].getBrand() + " " + cars[i].getModel() + " Максимальная скорость: ");
             cars[i].getMaxSpeed();
         }

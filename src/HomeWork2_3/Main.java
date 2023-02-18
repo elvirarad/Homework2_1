@@ -1,8 +1,5 @@
 package HomeWork2_3;
 
-
-import HomeWork2_2.Transport;
-
 public class Main {
     public static void main(String[] args) {
 
